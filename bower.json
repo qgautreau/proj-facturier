@@ -1,0 +1,17 @@
+{
+  "name": "proj-facturier",
+  "authors": [
+    "Quentin Gautreau <qgautreau@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
