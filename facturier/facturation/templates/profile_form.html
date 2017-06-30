@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans "Editer le profil" %}</h1>
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update" />
+</form>
+{% endblock %}
+{% block extra_scripts %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#id_skills").tagsinput()
+        $("#id_interests").tagsinput()
+        console.log("yolo")
+    });
+</script>
+{% endblock extra_scripts %}

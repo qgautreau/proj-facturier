@@ -1,0 +1,42 @@
+{% load static %}
+{% load sass_tags %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width", initial-scale="1">
+        <title>{%block title%}Facturier{%endblock title %}</title>
+        <link rel="stylesheet" href="{% static  'bower_components/bootstrap/dist/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% sass_src 'sass/style.scss' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Facturator</h1>
+            <nav class="navbar navbar-default">
+                {% if request.user.is_authenticated %}
+                <div class="log">
+                    Hello {{request.user.appuser.company}}
+                </div>
+                <ul class="nav navbar-nav navbar-left vertical-center">
+                    <li><a href="{% url 'homepage' %}">Home</a></li>
+                    <li><a href="{% url 'appuser_detail' request.user.appuser.company %}">Profile</a></li>
+                    <li><a href="{% url 'proposals_list' %}">Proposals</a></li>
+                    <li><a href="{% url 'customers_list' %}">Customers</a></li>
+                    <li><a class="log" href="{% url 'account_logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'account_login' %}">Login</a></li>
+                {% endif %}
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+            <script type="text/javascript" src="{% static 'jquery/dist/jquery.js' %}"></script>
+            <script type="text/javascript" src="{% static 'bootstrap-sass/assets/javascripts/bootstrap.js' %}"></script>
+            {% block extra_scripts %}
+            {% endblock extra_scripts %}
+        </div>
+    </body>
+</html>

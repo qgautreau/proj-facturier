@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Your profile</h1>
+
+<p>Company : {{user.appuser.company}}</p></br>
+<p>City : {{user.appuser.city}}</p></br>
+{% comment %}
+<a href="{% url 'profile_edit' user.appuser.company %}">Edit your profile</a>
+{% endcomment %}
+{% endblock %}

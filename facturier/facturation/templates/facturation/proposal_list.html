@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Proposals</h2>
+<div class="panel panel-default">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Reference</th>
+                <th>Company</th>
+                <th>Creation Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <thbody>
+            {% for proposal in proposals %}
+            <tr>
+                <td>{{proposal.ref}}</td>
+                <td>{{proposal.customer.company}}</td>
+                <td>{{proposal.creation_date}}</td>
+                <td>{{proposal.status}}</td>
+                <td><button>View</button></td>
+            </tr>
+            {% endfor %}
+        </thbody>
+    </table>
+</div>
+{% endblock %}
